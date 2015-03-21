@@ -1,0 +1,103 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity"
+    android:id="@+id/tim">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SOLVE FOR STRING"
+        android:id="@+id/button2"
+        android:textColor="#000000"
+        android:elevation="4dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText3"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:height="4dp"
+        android:layout_toStartOf="@+id/button2"
+        android:layout_alignParentTop="true"
+        android:inputType="textCapCharacters"
+        android:layout_toLeftOf="@+id/button2" />
+
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView2"
+        android:layout_centerHorizontal="true"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:layout_alignParentBottom="true"
+        android:scrollbars="none"
+        android:paddingTop="16dp"
+        android:clickable="false"
+        android:layout_below="@+id/radioButton2" />
+
+
+    <RadioButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Encrypt"
+    android:id="@+id/radioButton"
+    android:checked="false"
+        android:layout_below="@+id/editText3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <RadioButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Decrypt"
+    android:id="@+id/radioButton2"
+    android:checked="false"
+        android:layout_below="@+id/radioButton" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:entries="@array/caesar_choices"
+        android:touchscreenBlocksFocus="true"
+        android:spinnerMode="dialog"
+        android:layout_alignBottom="@+id/radioButton"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_below="@+id/button2"
+        android:layout_alignRight="@+id/button2"
+        android:layout_alignEnd="@+id/button2"
+        android:layout_marginRight="80dp"
+        android:layout_marginEnd="80dp"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Character Offset"
+        android:id="@+id/textView"
+        android:layout_marginRight="19dp"
+        android:layout_marginEnd="19dp"
+        android:layout_below="@+id/spinner"
+        android:layout_alignRight="@+id/listView2"
+        android:layout_alignEnd="@+id/listView2" />
+
+
+</RelativeLayout>
