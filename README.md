@@ -11,4 +11,4 @@ An Android app to encrypt and decrypt using common algorithms
 <img src="/screenshots/vigenere_cipher_screen.png" height="400px" />
 
 # Rot-13 Cipher Screen
-<img src="/screenshots/rot13_cipher_screen.png" height="400px" />
+<img src="/screenshots/rot13_screen.png" height="400px" />
