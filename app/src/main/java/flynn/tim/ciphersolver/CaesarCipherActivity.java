@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
 
@@ -33,6 +34,7 @@ public class CaesarCipherActivity extends ActionBarActivity {
         final ListView listview = (ListView) findViewById((R.id.listView2));
         final RadioButton encrypt = (RadioButton) findViewById(R.id.radioButton);
         final RadioButton decrypt = (RadioButton) findViewById(R.id.radioButton2);
+        final Spinner offset = (Spinner) findViewById(R.id.spinner);
         encrypt.setChecked(true);
 
         userString.setFilters(new InputFilter[] {
@@ -66,20 +68,52 @@ public class CaesarCipherActivity extends ActionBarActivity {
                 }
                 else {
 
-                    for (int i = 1; i <= 26; i++) {
-                        //Store the value of the encode with the given offset in result
+                    if(offset.getSelectedItem().toString().equalsIgnoreCase("All")) {
+                        if(encrypt.isChecked()==true) {
+                            for (int i = 1; i <= 26; i++) {
+                                //Store the value of the encode with the given offset in result
 
-                        result = c.encode(userString.getText().toString(), i);
-                        //Display result with some formatting
-                        if(i==1) {
-                            //text.setText("\n" + "Offset " + i + ":\t" + result);
-                            resultsList.add(new Result("Offset " + i + ":\t" + result, false, false));
-                        }else{
-                            //text.setText(text.getText() + "\n\n" + "Offset " + i + ":\t" + result);
-                            resultsList.add(new Result("Offset " + i + ":\t" + result, false, false));
+                                result = c.encode(userString.getText().toString(), i);
+                                //Display result with some formatting
+                                if (i == 1) {
+                                    //text.setText("\n" + "Offset " + i + ":\t" + result);
+                                    resultsList.add(new Result("Offset " + i + ":\t" + result, false, false));
+                                } else {
+                                    //text.setText(text.getText() + "\n\n" + "Offset " + i + ":\t" + result);
+                                    resultsList.add(new Result("Offset " + i + ":\t" + result, false, false));
+                                }
+                                //System.out.println("Offset " + i + ":\t" + result);
+                                //Loop again with new offset
+                            }
                         }
-                        //System.out.println("Offset " + i + ":\t" + result);
-                        //Loop again with new offset
+                        else
+                        {
+                            for (int i = 1; i <= 26; i++) {
+                                //Store the value of the encode with the given offset in result
+
+                                result = c.decode(userString.getText().toString(), i);
+                                //Display result with some formatting
+                                if (i == 1) {
+                                    //text.setText("\n" + "Offset " + i + ":\t" + result);
+                                    resultsList.add(new Result("Offset " + i + ":\t" + result, false, false));
+                                } else {
+                                    //text.setText(text.getText() + "\n\n" + "Offset " + i + ":\t" + result);
+                                    resultsList.add(new Result("Offset " + i + ":\t" + result, false, false));
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if(encrypt.isChecked()==true) {
+                            result = c.encode(userString.getText().toString(), Integer.parseInt(offset.getSelectedItem().toString()));
+                            resultsList.add(new Result("Offset " + offset.getSelectedItem().toString() + ": " + result, true, false));
+                        }
+                        else
+                        {
+                            result = c.decode(userString.getText().toString(), Integer.parseInt(offset.getSelectedItem().toString()));
+                            resultsList.add(new Result("Offset " + offset.getSelectedItem().toString() + ": " + result, true, false));
+                        }
                     }
                 }
 

@@ -42,9 +42,15 @@ public class MainActivity extends ActionBarActivity {
                     MainActivity.this.startActivity(i);
                     //MainActivity.this.finish();
                 }
+
+                if(cipherList.get(position).getResult().contentEquals("Vigenère Cipher"))
+                {
+                    Intent i = new Intent(MainActivity.this, VigenereCipherActivity.class);
+                    MainActivity.this.startActivity(i);
+                    //MainActivity.this.finish();
+                }
             }
         });
-
     }
 
 

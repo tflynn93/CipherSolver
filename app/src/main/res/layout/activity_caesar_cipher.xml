@@ -28,7 +28,8 @@
         android:layout_toStartOf="@+id/button2"
         android:layout_alignParentTop="true"
         android:inputType="textCapCharacters"
-        android:layout_toLeftOf="@+id/button2" />
+        android:layout_toLeftOf="@+id/button2"
+        android:hint="Ciphertext..." />
 
 
     <ListView
@@ -42,9 +43,13 @@
         android:scrollbars="none"
         android:paddingTop="16dp"
         android:clickable="false"
-        android:layout_below="@+id/radioButton2" />
+        android:layout_below="@+id/radioGroup" />
 
-
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText3"
+        android:id="@+id/radioGroup">
     <RadioButton
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -62,6 +67,7 @@
     android:id="@+id/radioButton2"
     android:checked="false"
         android:layout_below="@+id/radioButton" />
+    </RadioGroup>
 
     <Spinner
         android:layout_width="wrap_content"
@@ -70,11 +76,14 @@
         android:entries="@array/caesar_choices"
         android:touchscreenBlocksFocus="true"
         android:spinnerMode="dialog"
-        android:layout_alignBottom="@+id/radioButton"
+
+        android:layout_above="@+id/textView"
         android:layout_alignLeft="@+id/textView"
         android:layout_alignStart="@+id/textView"
         android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView" />
+        android:layout_alignEnd="@+id/textView"
+        android:layout_marginTop="8dp"
+        android:paddingTop="8dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -93,11 +102,12 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Character Offset"
         android:id="@+id/textView"
-        android:layout_marginRight="19dp"
-        android:layout_marginEnd="19dp"
-        android:layout_below="@+id/spinner"
+        android:layout_marginBottom="18dp"
+        android:layout_above="@+id/listView2"
         android:layout_alignRight="@+id/listView2"
-        android:layout_alignEnd="@+id/listView2" />
+        android:layout_alignEnd="@+id/listView2"
+        android:layout_marginRight="18dp"
+        android:layout_marginEnd="18dp" />
 
 
 </RelativeLayout>

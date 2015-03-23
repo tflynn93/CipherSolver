@@ -3,6 +3,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="solve_button">SOLVE FOR STRING</string>
 
     <string-array name="caesar_choices">
         <item>All</item>
@@ -33,4 +34,5 @@
         <item>25</item>
         <item>26</item>
     </string-array>
+    <string name="title_activity_rot13_cipher">Rot13CipherActivity</string>
 </resources>

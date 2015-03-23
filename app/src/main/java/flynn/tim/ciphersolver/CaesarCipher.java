@@ -10,24 +10,10 @@ import java.io.IOException;
 public class CaesarCipher {
 
     public static void main(String[] args) throws IOException {
+    }
 
-
-        //Declare and initialize String givenString with the appropriate value (from assignment)
-        String givenString = "ZSAD LG LZW DAGF DGQSD SFV LJMW ZSAD SDES ESLWJ OALZ QGMJ OZALW SFV TDMW";
-        //Print out original ciphertext
-        System.out.println("Ciphertext: \t" + givenString +"\n");
-        //Declare String result for use later
-        String result;
-
-        //Loop through all 26 combinations of the Caesar Cipher
-        for(int i = 1; i <= 26; i++)
-        {
-            //Store the value of the encode with the given offset in result
-            result = encode(givenString, i);
-            //Display result with some formatting
-            System.out.println("Offset " + i + ":\t" + result);
-            //Loop again with new offset
-        }
+    public static String decode(String enc, int offset) {
+        return encode(enc, 26-offset);
     }
 
     //Method for encoding Caesar Cipher
