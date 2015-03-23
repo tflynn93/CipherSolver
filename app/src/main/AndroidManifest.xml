@@ -33,7 +33,7 @@
         </activity>
         <activity
             android:name=".Rot13CipherActivity"
-            android:label="@string/title_activity_rot13_cipher"
+            android:label="Rot-13 Cipher"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

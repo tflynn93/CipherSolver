@@ -4,15 +4,72 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.RadioButton;
+
+import java.util.ArrayList;
 
 
 public class Rot13CipherActivity extends ActionBarActivity {
+
+    ArrayList<Result> resultsList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rot13_cipher);
+
+        final EditText ciphertext = (EditText) findViewById(R.id.editText2);
+        final Button solve = (Button) findViewById(R.id.button3);
+        final ListView listview = (ListView) findViewById(R.id.listView3);
+        final RadioButton encrypt = (RadioButton) findViewById(R.id.radioButton3);
+        encrypt.setChecked(true);
+        final CaesarCipher cc = new CaesarCipher();
+
+        solve.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                InputMethodManager inputManager = (InputMethodManager)
+                        getSystemService(Rot13CipherActivity.this.INPUT_METHOD_SERVICE);
+
+                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                        InputMethodManager.HIDE_NOT_ALWAYS);
+                String result;
+                resultsList.clear();
+                if (ciphertext.getText().toString().equals("")) {
+                    resultsList.add(new Result("No ciphertext entered!", false, true));
+                } else {
+                    result = cc.encode(ciphertext.getText().toString().toUpperCase(), 13);
+                    resultsList.add(new Result(result, true, false));
+                }
+
+
+                final MyListAdapter adapter = new MyListAdapter(getApplicationContext(), R.layout.list_item_caesar, resultsList);
+                listview.setAdapter(adapter);
+
+                listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                        if (resultsList.get(position).getEx() == false && resultsList.get(position).getChecked() == false) {
+                            resultsList.get(position).setEx(true);
+                        } else if (resultsList.get(position).getEx() == true) {
+                            resultsList.get(position).setEx(false);
+                            resultsList.get(position).setChecked(true);
+                        } else if (resultsList.get(position).getChecked() == true) {
+                            resultsList.get(position).setChecked(false);
+                        }
+                        adapter.updateList(resultsList);
+                    }
+                });
+            }
+        });
     }
+
 
 
     @Override

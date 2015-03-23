@@ -107,12 +107,12 @@ public class CaesarCipherActivity extends ActionBarActivity {
                     {
                         if(encrypt.isChecked()==true) {
                             result = c.encode(userString.getText().toString(), Integer.parseInt(offset.getSelectedItem().toString()));
-                            resultsList.add(new Result("Offset " + offset.getSelectedItem().toString() + ": " + result, true, false));
+                            resultsList.add(new Result(result, true, false));
                         }
                         else
                         {
                             result = c.decode(userString.getText().toString(), Integer.parseInt(offset.getSelectedItem().toString()));
-                            resultsList.add(new Result("Offset " + offset.getSelectedItem().toString() + ": " + result, true, false));
+                            resultsList.add(new Result(result, true, false));
                         }
                     }
                 }

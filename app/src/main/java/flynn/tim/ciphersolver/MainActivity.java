@@ -49,6 +49,13 @@ public class MainActivity extends ActionBarActivity {
                     MainActivity.this.startActivity(i);
                     //MainActivity.this.finish();
                 }
+
+                if(cipherList.get(position).getResult().contentEquals("Rot-13 Cipher"))
+                {
+                    Intent i = new Intent(MainActivity.this, Rot13CipherActivity.class);
+                    MainActivity.this.startActivity(i);
+                    //MainActivity.this.finish();
+                }
             }
         });
     }
