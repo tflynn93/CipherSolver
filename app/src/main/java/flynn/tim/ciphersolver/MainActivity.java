@@ -20,7 +20,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ColorDrawable newColor = new ColorDrawable(getResources().getColor(R.color.accent_material_light));//your color from res
+        ColorDrawable newColor = new ColorDrawable(getResources().getColor(R.color.accent_material_light));
         getSupportActionBar().setBackgroundDrawable(newColor);
         getSupportActionBar().setElevation(0);
         getSupportActionBar().setTitle("");
@@ -29,7 +29,7 @@ public class MainActivity extends ActionBarActivity {
         cipherList.add(new Result("Caesar Cipher", false, false));
         cipherList.add(new Result ("Vigenère Cipher", false, false));
         cipherList.add(new Result("Rot-13 Cipher", false, false));
-        MyListAdapter adapter = new MyListAdapter(getApplicationContext(), R.layout.list_item, cipherList);
+        MainListAdapter adapter = new MainListAdapter(getApplicationContext(), R.layout.list_item_main, cipherList);
         listview.setAdapter(adapter);
         //Set click listener for each item in the listview
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -64,7 +64,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        //getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 

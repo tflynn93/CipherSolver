@@ -1,5 +1,7 @@
 package flynn.tim.ciphersolver;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -51,19 +54,17 @@ public class Rot13CipherActivity extends ActionBarActivity {
                 final MyListAdapter adapter = new MyListAdapter(getApplicationContext(), R.layout.list_item_caesar, resultsList);
                 listview.setAdapter(adapter);
 
-                listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                listview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
-                        if (resultsList.get(position).getEx() == false && resultsList.get(position).getChecked() == false) {
-                            resultsList.get(position).setEx(true);
-                        } else if (resultsList.get(position).getEx() == true) {
-                            resultsList.get(position).setEx(false);
-                            resultsList.get(position).setChecked(true);
-                        } else if (resultsList.get(position).getChecked() == true) {
-                            resultsList.get(position).setChecked(false);
-                        }
-                        adapter.updateList(resultsList);
+                    public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+                                                   int pos, long id) {
+                        ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                        ClipData clip = ClipData.newPlainText("label", resultsList.get(pos).getResult());
+                        clipboard.setPrimaryClip(clip);
+                        Toast.makeText(getApplicationContext(), resultsList.get(pos).getResult().toUpperCase() + " copied to clipboard",
+                                Toast.LENGTH_SHORT).show();
+
+                        return true;
                     }
                 });
             }
@@ -75,7 +76,7 @@ public class Rot13CipherActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_rot13_cipher, menu);
+        //getMenuInflater().inflate(R.menu.menu_rot13_cipher, menu);
         return true;
     }
 

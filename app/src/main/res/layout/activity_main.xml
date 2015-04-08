@@ -25,7 +25,7 @@
                 android:layout_height="137dp"
                 android:id="@+id/imageView"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/lock2"/>
+                android:src="@drawable/lock_light"/>
 
             <TextView
                 android:layout_width="wrap_content"

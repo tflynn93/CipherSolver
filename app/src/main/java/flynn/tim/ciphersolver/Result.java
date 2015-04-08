@@ -5,6 +5,7 @@ package flynn.tim.ciphersolver;
  */
 public class Result {
 
+
     String result;
     Boolean checked;
     Boolean ex;
