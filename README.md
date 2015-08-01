@@ -7,7 +7,10 @@ An Android app to encrypt and decrypt using common algorithms
 </a>
 
 # Home Screen
-<img src="/screenshots/main_screen_updated.png" height="400px" />
+<img src="/screenshots/main_screen_updated_2.png" height="400px" />
+
+# Frequency Analysis Screen
+<img src="/screenshots/frequency_analysis_screen.png" height="400px" />
 
 # Caesar Cipher Screen
 <img src="/screenshots/caesar_cipher_screen_updated.png" height="400px" />
@@ -17,3 +20,5 @@ An Android app to encrypt and decrypt using common algorithms
 
 # Rot-13 Cipher Screen
 <img src="/screenshots/rot13_screen_updated.png" height="400px" />
+
+
