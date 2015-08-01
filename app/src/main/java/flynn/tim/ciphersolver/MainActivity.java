@@ -29,6 +29,7 @@ public class MainActivity extends ActionBarActivity {
         cipherList.add(new Result("Caesar Cipher", false, false));
         cipherList.add(new Result ("Vigenère Cipher", false, false));
         cipherList.add(new Result("Rot-13 Cipher", false, false));
+        cipherList.add(new Result("Frequency Analysis", false, false));
         MainListAdapter adapter = new MainListAdapter(getApplicationContext(), R.layout.list_item_main, cipherList);
         listview.setAdapter(adapter);
         //Set click listener for each item in the listview
@@ -53,6 +54,13 @@ public class MainActivity extends ActionBarActivity {
                 if(cipherList.get(position).getResult().contentEquals("Rot-13 Cipher"))
                 {
                     Intent i = new Intent(MainActivity.this, Rot13CipherActivity.class);
+                    MainActivity.this.startActivity(i);
+                    //MainActivity.this.finish();
+                }
+
+                if(cipherList.get(position).getResult().contentEquals("Frequency Analysis"))
+                {
+                    Intent i = new Intent(MainActivity.this, FrequencyActivity.class);
                     MainActivity.this.startActivity(i);
                     //MainActivity.this.finish();
                 }
