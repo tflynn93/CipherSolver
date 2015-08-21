@@ -8,8 +8,8 @@ android {
         applicationId "flynn.tim.ciphersolver"
         minSdkVersion 15
         targetSdkVersion 21
-        versionCode 3
-        versionName "1.02"
+        versionCode 4
+        versionName "1.03"
     }
     buildTypes {
         release {

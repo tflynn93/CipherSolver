@@ -16,6 +16,8 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -79,10 +81,38 @@ public class FrequencyActivity extends ActionBarActivity {
                     it.remove(); // avoids a ConcurrentModificationException
                 }
 
-                BarDataSet lds = new BarDataSet(entryList, "Frequency");
-                lds.setColors(new int[]  {R.color.accent_material_light}, getApplicationContext());
-                BarData data = new BarData(xVals, lds);
+                //Create FrequencyPair list for alphabetical sorting
+                List<FrequencyPair> fplist = new ArrayList<FrequencyPair>();
 
+                for(int i = 0; i < xVals.size(); i++)
+                {
+                    fplist.add(new FrequencyPair(xVals.get(i), Math.round(entryList.get(i).getVal())));
+                }
+
+                Collections.sort(fplist, new Comparator<FrequencyPair>() {
+                    @Override
+                    public int compare(FrequencyPair lhs, FrequencyPair rhs) {
+                        return lhs.getCharacter().compareTo(rhs.getCharacter());
+                    }
+                });
+
+                //Sorted lists
+                List<String> alphaXVals = new ArrayList<String>();
+                List<BarEntry> alphaEntryList = new ArrayList<BarEntry>();
+
+                //Iterate and populate sorted lists
+                for(int j = 0; j < fplist.size(); j++)
+                {
+                    alphaXVals.add(fplist.get(j).getCharacter());
+                    alphaEntryList.add(new BarEntry(fplist.get(j).getValue(),j));
+                }
+
+                //Create BarDataSet using sorted list
+                BarDataSet lds = new BarDataSet(alphaEntryList, "Frequency");
+                lds.setColors(new int[]  {R.color.accent_material_light}, getApplicationContext());
+                BarData data = new BarData(alphaXVals, lds);
+
+                //Set data to the chart
                 chart.setData(data);
             }
             });
