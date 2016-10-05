@@ -22,6 +22,21 @@
             android:parentActivityName=".MainActivity" >
         </activity>
         <activity
+            android:name=".StringReversalActivity"
+            android:label="Reverse Text"
+            android:parentActivityName=".MainActivity" >
+        </activity>
+        <activity
+            android:name=".AtbashActivity"
+            android:label="Atbash"
+            android:parentActivityName=".MainActivity" >
+        </activity>
+        <activity
+            android:name=".LetterNumberActivity"
+            android:label="Letter-Number Cipher"
+            android:parentActivityName=".MainActivity" >
+        </activity>
+        <activity
             android:name=".VigenereCipherActivity"
             android:label="Vigenère Cipher"
             android:parentActivityName=".MainActivity" >

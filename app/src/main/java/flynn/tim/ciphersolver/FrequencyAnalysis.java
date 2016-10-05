@@ -30,20 +30,6 @@ public class FrequencyAnalysis {
                 map.put(c,1);
             }
         }
-
-        /*
-        Iterator it = map.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry)it.next();
-            System.out.print(pair.getKey() + " = " + pair.getValue() + "\t");
-            for(int i = 0; i < Integer.parseInt(pair.getValue().toString()); i++)
-            {
-                System.out.print("*");
-            }
-            System.out.println("\n");
-            it.remove(); // avoids a ConcurrentModificationException
-        }
-        */
         return map;
     }
 }

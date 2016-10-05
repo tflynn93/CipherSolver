@@ -30,6 +30,9 @@ public class MainActivity extends ActionBarActivity {
         cipherList.add(new Result("Frequency Analysis", false, false));
         cipherList.add(new Result("Rot-13 Cipher", false, false));
         cipherList.add(new Result ("Vigenère Cipher", false, false));
+        cipherList.add(new Result("Atbash Cipher", false, false));
+        //cipherList.add(new Result ("Letter-Number Cipher", false, false));
+        cipherList.add(new Result ("Reverse Text", false, false));
 
         MainListAdapter adapter = new MainListAdapter(getApplicationContext(), R.layout.list_item_main, cipherList);
         listview.setAdapter(adapter);
@@ -65,6 +68,29 @@ public class MainActivity extends ActionBarActivity {
                     MainActivity.this.startActivity(i);
                     //MainActivity.this.finish();
                 }
+
+                if(cipherList.get(position).getResult().contentEquals("Reverse Text"))
+                {
+                    Intent i = new Intent(MainActivity.this, StringReversalActivity.class);
+                    MainActivity.this.startActivity(i);
+                    //MainActivity.this.finish();
+                }
+
+                if(cipherList.get(position).getResult().contentEquals("Atbash Cipher"))
+                {
+                    Intent i = new Intent(MainActivity.this, AtbashActivity.class);
+                    MainActivity.this.startActivity(i);
+                    //MainActivity.this.finish();
+                }
+
+
+                /*
+                if(cipherList.get(position).getResult().contentEquals("Letter-Number Cipher"))
+                {
+                    Intent i = new Intent(MainActivity.this, LetterNumberActivity.class);
+                    MainActivity.this.startActivity(i);
+                    //MainActivity.this.finish();
+                }*/
             }
         });
     }

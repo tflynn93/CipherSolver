@@ -1,0 +1,51 @@
+{
+  "name": "__MSG_extName__",
+  "default_locale": "en",
+  "manifest_version": 2,
+  "version": "0.2",
+  "version_name": "1.1",
+  "offline_enabled": true,
+  "app": {
+    "background": {
+      "page": "app_main.html"
+    }
+  },
+  "icons": {
+    "16": "icon.png",
+    "128": "icon.png"
+  },
+  "permissions": [
+    "gcm",
+    {"fileSystem": ["write"]},
+    {"socket": ["tcp-connect", "tcp-listen", "udp-bind", "udp-send-to", "resolve-host"]},
+    "unlimitedStorage",
+    "notifications",
+    "identity",
+    "accessibilityFeatures.read",
+    "https://clients2.google.com/",
+    "identity.email",
+    "alarms",
+    "storage",
+    "geolocation"]
+,
+  "requirements": {
+    "3D": {
+      "features": ["webgl"]
+    }
+  },
+  "kiosk_enabled": true,
+  "import": [{"id": "mfaihdlpglflfgpfjcifdjdjcckigekc"}],
+  "file_handlers": {},
+  
+  
+  "arc_metadata": {
+    "apkList": [
+      "CommunityAnimator.apk"
+    ],
+    "enableExternalDirectory": false,
+    "formFactor": "tablet",
+    "name": "Community Animator",
+    "orientation": "landscape",
+    "packageName": "com.example.communityanimator"
+  }
+}
